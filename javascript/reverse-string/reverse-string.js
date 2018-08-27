@@ -1,4 +1,3 @@
-
 // reverse the given string 
 function reverseString(string) {
   var result = "";
