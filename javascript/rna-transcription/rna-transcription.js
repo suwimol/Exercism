@@ -1,8 +1,4 @@
 class Transcriptor {
-  constructor() {
-    // empty constructor
-  }
-
   // Given a DNA strand, return its RNA complement (per RNA transcription)
   toRna(dna) {
     var rna = '';
