@@ -1,0 +1,5 @@
+class NucleotideCounts {
+  parse(string) {
+    
+  }
+}
