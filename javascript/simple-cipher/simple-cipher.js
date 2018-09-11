@@ -27,7 +27,6 @@ class Cipher {
 
     var letters = text.split("");
     var keyChars = this.key.split("");
-    var allPoss = ALPHABET.split("");
 
     var after = letters.map(function(letter, ind) {
       var newInd = ALPHABET.indexOf(letter) + ALPHABET.indexOf(keyChars[ind]);
@@ -38,13 +37,12 @@ class Cipher {
     });
 
     var result = after.map(ind => ALPHABET[ind]);
-
     return result.join('');
   
   }
 
-  decode(encoded_text) {
-    var letters = encoded_text.split("");
+  decode(encodedText) {
+    var letters = encodedText.split("");
     var keyChars = this.key.split("");
 
     var after = letters.map(function(letter, ind) {
@@ -56,7 +54,6 @@ class Cipher {
     });
 
     var result = after.map(ind => ALPHABET[ind]);
-
     return result.join('');
   }
 }
