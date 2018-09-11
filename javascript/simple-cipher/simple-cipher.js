@@ -1,4 +1,4 @@
-const ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
 function generateRandomKey() {
   return Array(...Array(100)).map(() => ALPHABET[Math.floor(Math.random() * ALPHABET.length)])
@@ -17,10 +17,13 @@ class Cipher {
   }
 
   encode(text) {
-    for (var i = 0; i < text.length - this.key.length; i++) {
-      this.key += this.key[i];
+    // handle messages with length longer than the key
+    if (this.key.length < text.length) {
+      var keyLength = this.key.length;
+      for (var i = 0; i < text.length - keyLength; i++) {
+        this.key += this.key[i];
+      }
     }
-    console.log(this.key)
 
     var letters = text.split("");
     var keyChars = this.key.split("");
@@ -34,7 +37,6 @@ class Cipher {
       return newInd;
     });
 
-    console.log(after)
     var result = after.map(ind => ALPHABET[ind]);
 
     return result.join('');
@@ -42,11 +44,8 @@ class Cipher {
   }
 
   decode(encoded_text) {
-    console.log(this.key)
-    console.log(encoded_text)
     var letters = encoded_text.split("");
     var keyChars = this.key.split("");
-    // var allPoss = ALPHABET.split("");
 
     var after = letters.map(function(letter, ind) {
       var newInd = ALPHABET.indexOf(letter) - ALPHABET.indexOf(keyChars[ind]);
@@ -56,7 +55,6 @@ class Cipher {
       return newInd;
     });
 
-    console.log(after)
     var result = after.map(ind => ALPHABET[ind]);
 
     return result.join('');
