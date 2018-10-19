@@ -1,5 +1,5 @@
 # Exercism
-A repository to post my own solutions to [Exercism](https://exercism.io).
+A repository to post my own solutions to [Exercism](https://exercism.io) exercises.
 ### Objective
 To practice and learn new JavaScript techniques.
 ### Reference
